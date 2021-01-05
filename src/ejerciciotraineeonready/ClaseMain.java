@@ -25,10 +25,13 @@ public class ClaseMain {
         System.out.println(concesionaria.toString().replace(",", "").replace("[", "").replace("]", ""));
         System.out.println("==========================================================================");
         
-        System.out.println("Vehìculo màs caro: " + concesionaria.buscarVehiculoMasCaro());
+        List<Vehiculo> salida = concesionaria.ordenar(comparadorReversa);
+        int ultimo = salida.size() - 1;
+        
+        System.out.println("Vehìculo màs caro: " + salida.get(0).getMarca() + " " + salida.get(0).getModelo());
         System.out.println("==========================================================================");
         
-        System.out.println("Vehìculo màs Barato: " + concesionaria.buscarVehiculoMasBarato());
+        System.out.println("Vehìculo màs Barato: " + salida.get(ultimo).getMarca() + " " + salida.get(ultimo).getModelo());
         System.out.println("==========================================================================");
         
         if(concesionaria.buscarVehiculoConLetra("Y").size() == 0)
@@ -41,7 +44,7 @@ public class ClaseMain {
         System.out.println("==========================================================================");
         
         System.out.println("Vehiculos ordenados por precio de mayor a menor:");
-        List<Vehiculo> salida = concesionaria.ordenar(comparadorReversa);
+        
         for(int i = 0; i < salida.size(); i++) {
             System.out.println(salida.get(i).getMarca() + " " + salida.get(i).getModelo());
         }
