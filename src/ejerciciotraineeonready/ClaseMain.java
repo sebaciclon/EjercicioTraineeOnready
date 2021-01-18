@@ -13,8 +13,7 @@ public class ClaseMain {
         Vehiculo moto2 = new Moto(160, "Yamaha", "YBR", 80500.50);
         
         Comparator<Vehiculo> comparadorPorPrecio = new ComparadorPorPrecio();
-        Comparator<Vehiculo> comparadorReversa = new ComparadorReversa(comparadorPorPrecio);
-        
+                
         Concesionaria concesionaria = new Concesionaria();
         
         concesionaria.agregarVehiculo(auto1);
@@ -25,7 +24,7 @@ public class ClaseMain {
         System.out.println(concesionaria.toString().replace(",", "").replace("[", "").replace("]", ""));
         System.out.println("==========================================================================");
         
-        List<Vehiculo> salida = concesionaria.ordenar(comparadorReversa);
+        List<Vehiculo> salida = concesionaria.ordenar(comparadorPorPrecio);
         int ultimo = salida.size() - 1;
         
         System.out.println("Vehìculo màs caro: " + salida.get(0).getMarca() + " " + salida.get(0).getModelo());
